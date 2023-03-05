@@ -139,7 +139,8 @@ function gameOver() {
   textAlign(CENTER);
 		text('GAME OVER', width / 2, height / 2)
         text('SCORE:' + score, width / 2, height / 2 + 25)
-		text('Click to start over', width / 2, height / 2 + 50);
+        text('LEVEL: ' + levels, width / 2, height / 2 + 50)
+		text('Click to start over', width / 2, height / 2 + 75);
   fill(255)
   
 }
