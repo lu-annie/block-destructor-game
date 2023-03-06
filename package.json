@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "firebase": "^9.17.2",
+    "lit-html": "^2.6.1",
     "p5": "^1.6.0",
     "p5.play": "^3.7.2"
   },
@@ -8,12 +10,15 @@
     "@web/dev-server": "^0.1.35",
     "gh-pages": "^5.0.0",
     "rollup": "^2.79.1",
-    "rollup-plugin-copy": "^3.4.0"
+    "rollup-plugin-copy": "^3.4.0",
+    "vite": "^4.1.4"
   },
   "scripts": {
-    "start": "web-dev-server --node-resolve --open --watch",
-    "build": "rollup --config",
-    "deploy": "npm run build && gh-pages -d dist"
+    "start": "web-dev-server --node-resolve --open --watch vite",
+    "host": "vite --host",
+    "build": "rollup --config vite build",
+    "deploy": "npm run build && gh-pages -d dist",
+    "preview": "vite preview"
   },
   "name": "block-destructor-game",
   "description": "HCDE 438 Final Project Prototype",
