@@ -8,6 +8,7 @@ var screen = 0
 var score = 0;
 var levels = 0;
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   player = new Sprite();
@@ -135,16 +136,30 @@ function mousePressed(){
 }
 
 function gameOver() {
+  noLoop()
   background(150)
   textAlign(CENTER);
 		text('GAME OVER', width / 2, height / 2)
         text('SCORE:' + score, width / 2, height / 2 + 25)
         text('LEVEL: ' + levels, width / 2, height / 2 + 50)
-		text('Click to start over', width / 2, height / 2 + 75);
   fill(255)
-  window.sendMessage(score)
+  button = createButton('Restart');
+  button.position(0,0);
+  button.mousePressed(startLoop)
+
+    window.sendScore(score, levels)
+    scoreSent = true
+
+  let scores = window.getAllMessages()
+  console.log(scores)
 }
 
+function startLoop() {
+  screen=1
+  resetScore()
+  loop()
+  reset()
+}
 
 function reset() {
   player.y = 500
