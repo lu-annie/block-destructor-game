@@ -7,6 +7,7 @@ let block4;
 var screen = 0
 var score = 0;
 var levels = 0;
+var timer = 0;
 
 
 function setup() {
@@ -72,6 +73,8 @@ function gameOn() {
   background(250)
   text('Score: '  + score, width/2, 20);
   text('Level: '  + levels, width/2, 40);
+  text('Time Passed: '  + timer, width/2, 60);
+  timer = timer + 1
   fill(0)
   block.direction = 180;
   block.speed = random(1, 10);
@@ -142,12 +145,13 @@ function gameOver() {
 		text('GAME OVER', width / 2, height / 2)
         text('SCORE:' + score, width / 2, height / 2 + 25)
         text('LEVEL: ' + levels, width / 2, height / 2 + 50)
+        text('TIME PASSED: ' + timer, width / 2, height / 2 + 75)
   fill(255)
   button = createButton('Restart');
   button.position(0,0);
   button.mousePressed(startLoop)
 
-    window.sendScore(score, levels)
+    window.sendScore(username)
     scoreSent = true
 
   let scores = window.getAllMessages()

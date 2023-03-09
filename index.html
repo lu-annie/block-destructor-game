@@ -12,6 +12,20 @@
   </head>
   <body>
     <main>
+      <div id="gameover">
+        <h1>GAME OVER</h1>
+        <h3 id="score"></h3>
+        <form id="submit">
+          <label for="user-name">name</label>
+          <input type="text" id="user-name" name="name">
+          <button id="submit-button">submit</button>
+        </form>
+        <div id="leaderboard">
+          <ol id="LB-list">
+            
+          </ol>
+        </div>
+      </div>
     </main>
     <script src="firebase.js" type="module"></script>  
     <script src="index.js" defer></script>

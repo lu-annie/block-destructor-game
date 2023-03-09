@@ -29,14 +29,15 @@ const db = getFirestore(app);
 let messages = [];
 const messagesRef = collection(db, "messages");
 
-async function sendScore(score, level) {
+async function sendScore(username) {
     console.log("Sending your score!");
     // Add some data to the messages collection
     try {
       const docRef = await addDoc(collection(db, "messages"), {
         time: Date.now(),
+        username: username,
         score: score,
-        level: level
+        levels: levels
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -70,10 +71,11 @@ function handleInput(e) {
 }
 
 function view() {
-    return html`<h1>Score History</h1>
-    <div id="messages-container">
-      ${messages.map((msg) => html`<div class="message">${msg.content}</div>`)}
-    </div>`;
+  return html`<h1>Score History</h1>
+  <input type="text" @keydown=${handleInput} />
+  <div id="messages-container">
+    ${messages.map((msg) => html`<div class="message">${msg.content}</div>`)}
+  </div>`;
 }
 
 render(view(), document.body);

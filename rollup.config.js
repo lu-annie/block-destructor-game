@@ -2,7 +2,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import copy from "rollup-plugin-copy";
 
 module.exports = {
-  input: "index.js",
+  input: "index.js" ,
   output: {
     dir: "dist",
   },
